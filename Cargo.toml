@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/stegseek-core",
+    "crates/stegseek-crypto",
+    "crates/stegseek-jpeg",
+    "crates/stegseek-cli",
+    "xtask",
+]
+
+[workspace.package]
+version = "0.6.0"
+edition = "2021"
+rust-version = "1.75"
+license = "GPL-2.0-or-later"
+description = "StegSeek — a Rust reimplementation of the steghide cracker (functionally compatible with steghide 0.5.1 / stegseek 0.6)"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"

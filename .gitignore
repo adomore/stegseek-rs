@@ -1,0 +1,16 @@
+# Build output
+/target
+**/*.rs.bk
+Cargo.lock
+/tests/corpus/generated
+
+# Large / non-source assets not needed to build or test the port.
+# 134 MB password list — fetch your own for real cracking.
+/rockyou.txt
+# Upstream reference package (available from the original project).
+/stegseek-master.zip
+
+# Stray working artifacts
+/none.jpg.out
+/target.jpg
+*.out.bin

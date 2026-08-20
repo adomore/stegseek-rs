@@ -1,0 +1,26 @@
+[package]
+name = "stegseek-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "stegseek command-line interface."
+
+[[bin]]
+name = "stegseek"
+path = "src/main.rs"
+
+[dependencies]
+stegseek-core = { path = "../stegseek-core" }
+stegseek-crypto = { path = "../stegseek-crypto" }
+
+[package.metadata.deb]
+maintainer = "stegseek-rs"
+copyright = "2021, Rick de Jager; Rust port"
+extended-description = "Pure-Rust reimplementation of StegSeek, a lightning-fast steghide cracker, functionally compatible with steghide 0.5.1 / stegseek 0.6. No C-library dependencies."
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/stegseek", "usr/bin/", "755"],
+    ["../../README.md", "usr/share/doc/stegseek-rs/README.md", "644"],
+]

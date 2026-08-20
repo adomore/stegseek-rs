@@ -1,0 +1,19 @@
+[package]
+name = "stegseek-crypto"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "libmcrypt/libmhash-compatible crypto layer (algorithms, modes, KEYGEN_MCRYPT)."
+
+[dependencies]
+md-5 = "0.10"
+cipher = "0.4"
+des = "0.8"
+twofish = "0.7"
+blowfish = "0.9"
+cast5 = "0.11"
+serpent = "0.5"
+cast6 = "0.1"
+byteorder = "1"
+rc2 = "0.8"

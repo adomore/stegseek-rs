@@ -1,0 +1,14 @@
+[package]
+name = "stegseek-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Steghide-compatible steganography core: bitstring, PRNG, selector, embdata, formats, crackers, embed engine."
+
+[dependencies]
+flate2 = "1.0"
+md-5 = "0.10"
+crc32fast = "1.4"
+stegseek-crypto = { path = "../stegseek-crypto" }
+stegseek-jpeg = { path = "../stegseek-jpeg" }
