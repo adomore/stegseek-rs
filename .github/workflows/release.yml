@@ -62,14 +62,14 @@ jobs:
       - name: Package
         shell: bash
         run: |
-          name="stegseek-${GITHUB_REF_NAME}-${{ matrix.target }}"
+          name="stegseek-rs-${GITHUB_REF_NAME}-${{ matrix.target }}"
           mkdir -p dist
           if [[ "${{ matrix.target }}" == *windows* ]]; then
-            cp "target/${{ matrix.target }}/release/stegseek.exe" "dist/${name}.exe"
+            cp "target/${{ matrix.target }}/release/stegseek-rs.exe" "dist/${name}.exe"
             asset="dist/${name}.exe"
           else
-            cp "target/${{ matrix.target }}/release/stegseek" dist/stegseek
-            tar -C dist -czf "dist/${name}.tar.gz" stegseek
+            cp "target/${{ matrix.target }}/release/stegseek-rs" dist/stegseek-rs
+            tar -C dist -czf "dist/${name}.tar.gz" stegseek-rs
             asset="dist/${name}.tar.gz"
           fi
           if command -v sha256sum >/dev/null 2>&1; then

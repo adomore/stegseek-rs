@@ -6,7 +6,7 @@ RUN cargo build --release --locked
 
 # Runtime (no C library dependencies — pure Rust)
 FROM debian:bookworm-slim
-COPY --from=build /src/target/release/stegseek /usr/bin/stegseek
+COPY --from=build /src/target/release/stegseek-rs /usr/bin/stegseek-rs
 WORKDIR /steg
-ENTRYPOINT ["stegseek"]
+ENTRYPOINT ["stegseek-rs"]
 CMD ["--help"]

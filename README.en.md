@@ -33,25 +33,25 @@ zero external libs).
 
 ```bash
 # crack (default command)
-stegseek [stegofile.jpg] [wordlist.txt] [output]
-stegseek --crack -sf stego.jpg -wl rockyou.txt -xf out.bin
+stegseek-rs [stegofile.jpg] [wordlist.txt] [output]
+stegseek-rs --crack -sf stego.jpg -wl rockyou.txt -xf out.bin
 
 # passwordless detection / recovery (CVE-2021-27211)
-stegseek --seed stego.jpg
+stegseek-rs --seed stego.jpg
 
 # extract / embed (steghide-compatible)
-stegseek --extract -sf stego.jpg -p passphrase -xf out
-stegseek --embed -cf cover.jpg -ef secret.txt -sf stego.jpg -p passphrase
+stegseek-rs --extract -sf stego.jpg -p passphrase -xf out
+stegseek-rs --embed -cf cover.jpg -ef secret.txt -sf stego.jpg -p passphrase
 
 # info
-stegseek --info file.jpg
-stegseek --encinfo
+stegseek-rs --info file.jpg
+stegseek-rs --encinfo
 ```
 
 ## Build
 
 ```bash
-cargo build --release       # -> target/release/stegseek
+cargo build --release       # -> target/release/stegseek-rs
 cargo test --workspace
 ```
 MSRV: Rust 1.75. See [`BUILD-rs.md`](BUILD-rs.md). Docker: `docker build -t stegseek-rs .`.
@@ -67,7 +67,7 @@ its stock `-O2`. Full head-to-head measured on one machine in [`BENCHMARK.md`](B
 - `crates/stegseek-core` — bitstring, PRNG, selector, embdata, formats, crackers, embed
 - `crates/stegseek-crypto` — libmcrypt/libmhash-compatible crypto (18 ciphers, KEYGEN_MCRYPT)
 - `crates/stegseek-jpeg` — pure-Rust JPEG DCT decode (baseline+progressive) + baseline encode
-- `crates/stegseek-cli` — the `stegseek` binary
+- `crates/stegseek-cli` — the `stegseek-rs` binary
 
 ## Validation & audit
 

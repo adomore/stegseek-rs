@@ -7,7 +7,7 @@ license.workspace = true
 description = "stegseek command-line interface."
 
 [[bin]]
-name = "stegseek"
+name = "stegseek-rs"
 path = "src/main.rs"
 
 [dependencies]
@@ -21,6 +21,6 @@ extended-description = "Pure-Rust reimplementation of StegSeek, a lightning-fast
 section = "utils"
 priority = "optional"
 assets = [
-    ["target/release/stegseek", "usr/bin/", "755"],
+    ["target/release/stegseek-rs", "usr/bin/", "755"],
     ["../../README.md", "usr/share/doc/stegseek-rs/README.md", "644"],
 ]

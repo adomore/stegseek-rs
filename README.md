@@ -48,7 +48,7 @@
 ## 📦 安装 / 构建
 
 ```bash
-cargo build --release        # 产物: target/release/stegseek
+cargo build --release        # 产物: target/release/stegseek-rs
 cargo test --workspace
 ```
 
@@ -59,19 +59,19 @@ cargo test --workspace
 
 ```bash
 # 破解(默认命令)
-stegseek [stego.jpg] [wordlist.txt] [输出]
-stegseek --crack -sf stego.jpg -wl rockyou.txt -xf out.bin
+stegseek-rs [stego.jpg] [wordlist.txt] [输出]
+stegseek-rs --crack -sf stego.jpg -wl rockyou.txt -xf out.bin
 
 # 无密码检测 / 恢复(CVE-2021-27211)
-stegseek --seed stego.jpg
+stegseek-rs --seed stego.jpg
 
 # 提取 / 嵌入(与 steghide 兼容)
-stegseek --extract -sf stego.jpg -p 口令 -xf out
-stegseek --embed -cf cover.jpg -ef secret.txt -sf stego.jpg -p 口令
+stegseek-rs --extract -sf stego.jpg -p 口令 -xf out
+stegseek-rs --embed -cf cover.jpg -ef secret.txt -sf stego.jpg -p 口令
 
 # 信息
-stegseek --info file.jpg     # 加 -p 口令 可显示内嵌文件信息
-stegseek --encinfo           # 列出支持的加密算法
+stegseek-rs --info file.jpg     # 加 -p 口令 可显示内嵌文件信息
+stegseek-rs --encinfo           # 列出支持的加密算法
 ```
 
 常用参数:`-t` 线程数 · `-c/--continue` 命中后继续找多个内嵌文件 · `-q` 隐藏进度 · `-s` 跳过默认猜测 · `-f` 覆盖已存在文件。
@@ -83,7 +83,7 @@ stegseek --encinfo           # 列出支持的加密算法
 | `crates/stegseek-core` | BitString、PRNG、选择器、EmbData、格式、破解器、嵌入 |
 | `crates/stegseek-crypto` | libmcrypt/libmhash 兼容加密(18 密码、KEYGEN_MCRYPT) |
 | `crates/stegseek-jpeg` | 纯 Rust JPEG DCT 解码(baseline+progressive)+ baseline 编码 |
-| `crates/stegseek-cli` | `stegseek` 可执行文件 |
+| `crates/stegseek-cli` | `stegseek-rs` 可执行文件 |
 | `xtask` | 热路径 + 端到端吞吐基准 |
 
 ## ✅ 测试与审计

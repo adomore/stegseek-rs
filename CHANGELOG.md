@@ -5,6 +5,17 @@
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-08-20
+
+首个稳定版。经完整审计、双向差分校验与 fuzz 健壮性加固后正式定为 1.0。
+
+### 变更 (Changed)
+- **二进制改名**:产物 / 安装 / 命令名由 `stegseek` 统一为 **`stegseek-rs`**(deb 包、Docker `ENTRYPOINT`、GitHub Release 资产名同步更新),避免与上游 steghide / stegseek 命令冲突。
+- 版本号升至 **1.0.0**。`--version` 横幅仍显示 `StegSeek 0.6`,表示所对标的上游兼容级别 —— 以保持与 steghide/stegseek 一致的 CLI 输出。
+
+### 说明 (Notes)
+- 功能、格式、加密、性能均与 0.6.0 一致(见下);1.0.0 是在通过双向差分、86 项内建测试与 JPEG 解码器 fuzz 加固之后,对成熟度与稳定性的正式标记。
+
 ## [0.6.0] - 2026-08-20
 
 首个发布 —— 纯 Rust 实现的极速 steghide 破解器,对标 stegseek 0.6 / steghide 0.5.1。

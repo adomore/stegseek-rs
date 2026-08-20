@@ -140,13 +140,13 @@ PFX="$PWD/prefix/usr"
 **Build the Rust binary and a worst-case wordlist:**
 ```bash
 export CARGO_TARGET_DIR="$HOME/.cache/stegseek-rs-target"   # keep target/ on a native fs
-cargo build --release                                        # -> target/release/stegseek
+cargo build --release                                        # -> target/release/stegseek-rs
 python3 -c "open('wl.txt','w').write(''.join(f'x{i}\n' for i in range(14344391)))"
 ```
 
 **Time both** (full worst-case scan, quiet, skip-default):
 ```bash
-time ./target/release/stegseek     --crack tests/data/stego/none.jpg wl.txt -q -s -t 16
+time ./target/release/stegseek-rs --crack tests/data/stego/none.jpg wl.txt -q -s -t 16
 time stegseek-master/build/src/stegseek --crack tests/data/stego/none.jpg wl.txt -q -s -t 16
 ```
 

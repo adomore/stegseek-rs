@@ -7,7 +7,7 @@
 use std::path::PathBuf;
 use std::process::{Command, Output, Stdio};
 
-const BIN: &str = env!("CARGO_BIN_EXE_stegseek");
+const BIN: &str = env!("CARGO_BIN_EXE_stegseek-rs");
 
 fn data(rel: &str) -> String {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
