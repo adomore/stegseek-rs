@@ -658,9 +658,13 @@ fn dec_ac_refine(
                 if *coef != 0 {
                     if br.get_bit() != 0 && (*coef & p1) == 0 {
                         // wrapping_add: matches the release build (which wraps) and is
-                // identical to `+` for valid JPEGs (coefficients never overflow),
-                // but avoids a debug-only panic on corrupt successive-approx data.
-                *coef = if *coef >= 0 { coef.wrapping_add(p1) } else { coef.wrapping_add(m1) };
+                        // identical to `+` for valid JPEGs (coefficients never overflow),
+                        // but avoids a debug-only panic on corrupt successive-approx data.
+                        *coef = if *coef >= 0 {
+                            coef.wrapping_add(p1)
+                        } else {
+                            coef.wrapping_add(m1)
+                        };
                     }
                 } else {
                     r -= 1;
@@ -686,7 +690,11 @@ fn dec_ac_refine(
                 // wrapping_add: matches the release build (which wraps) and is
                 // identical to `+` for valid JPEGs (coefficients never overflow),
                 // but avoids a debug-only panic on corrupt successive-approx data.
-                *coef = if *coef >= 0 { coef.wrapping_add(p1) } else { coef.wrapping_add(m1) };
+                *coef = if *coef >= 0 {
+                    coef.wrapping_add(p1)
+                } else {
+                    coef.wrapping_add(m1)
+                };
             }
             k += 1;
         }
