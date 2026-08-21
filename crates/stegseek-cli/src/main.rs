@@ -16,7 +16,8 @@ use stegseek_core::utils::{format_hr_size, strip_dir};
 use stegseek_core::StegError;
 use stegseek_crypto::{EncryptionAlgorithm, EncryptionMode, ALGORITHMS};
 
-const STEGSEEK_VERSION: &str = "0.6";
+/// The port's own version (tracks Cargo.toml automatically).
+const VERSION: &str = env!("CARGO_PKG_VERSION");
 const STEGHIDE_VERSION: &str = "0.5.1";
 
 // ANSI helpers (gated on `color`)
@@ -55,9 +56,9 @@ fn warn(a: &Args, s: &str) {
 }
 
 fn print_version(a: &Args) {
-    eprintln!("StegSeek {STEGSEEK_VERSION} - https://github.com/RickdeJager/StegSeek");
+    eprintln!("stegseek-rs {VERSION} - https://github.com/adomore/stegseek-rs");
     if a.verbosity == Verbosity::Verbose {
-        eprintln!("based on steghide version {STEGHIDE_VERSION}");
+        eprintln!("based on steghide {STEGHIDE_VERSION}, compatible with stegseek 0.6");
     }
     eprintln!();
 }

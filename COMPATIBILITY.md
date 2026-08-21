@@ -26,6 +26,15 @@ compatible by end-to-end differential testing** (not just golden fixtures — se
   prefixes, color gated on TTY, and exit codes (0 found / non-zero
   not-found+error) match.
 
+> **Deliberate divergence — the identity banner.** Since v1.0.0 the binary is
+> named `stegseek-rs` and its `--version` / start-up banner reads
+> `stegseek-rs <version> - https://github.com/adomore/stegseek-rs` (verbose adds
+> `based on steghide 0.5.1, compatible with stegseek 0.6`), instead of mirroring
+> the upstream `StegSeek 0.6 - …` line. Only this one identity line differs; the
+> per-result output (`[i] Found passphrase`, `Original filename`, `Extracting
+> to`, the `[i]`/`[w]`/`[e]` prefixes) and exit codes are unchanged, so tools that
+> parse the *result* lines are unaffected.
+
 ## Fixed since the audit (2026-08-18)
 
 The JPEG-panic robustness bug and every confirmed CLI/functional gap were fixed
