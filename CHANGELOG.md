@@ -13,7 +13,7 @@
 维护版本:修复从干净 clone 构建失败的问题,订正文档中的过时事实,并为中英 README 建立结构对齐门禁。二进制行为完全不变 —— 破解、提取、嵌入的结果、命令行接口与退出码均与 1.0.0 一致。
 
 ### 修复 (Fixed)
-- **`--locked` 构建从干净 clone 失败**:`Cargo.lock` 此前被 `.gitignore` 排除,导致 `Dockerfile` 与两份 README 都推荐的 `cargo build --release --locked` 与 `docker build` 在新克隆的仓库上直接报错。锁文件现已入库,CI 的 cargo 步骤统一加 `--locked`,依赖漂移会在 CI 暴露,而不是等到 `docker build` 时才发现。
+- **`--locked` 构建从干净 clone 失败**:`Cargo.lock` 此前被 `.gitignore` 排除,导致 `Dockerfile` 与两份 README 都推荐的 `cargo build --release --locked` 与 `docker build` 在新克隆的仓库上直接报错。锁文件现已入库,CI 与 release workflow 的 cargo 步骤统一加 `--locked` —— 分发的五个平台二进制与 CI 验证的是同一份依赖树,依赖漂移会在 CI 暴露,而不是等到 `docker build` 时才发现。
 
 ### 变更 (Changed)
 - **CI 新增 `docs` 作业**:`scripts/lockstep.py` 强制 `README.md` 与 `README.en.md` 结构等价(标题层级序列、代码块数量、表格行数、行内代码字面量集合),只改一份即 CI 红。
