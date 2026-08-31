@@ -1,9 +1,17 @@
 # stegseek-rs 全面审计报告 · Full Audit Report
 
+> **这是一份定格于 2026-08-18 的快照，不是当前状态。** 报告中的测试计数（61）、
+> 二进制体积与版本号均为**审计当时**的实测值，作为审计留痕保留原样；§0 记录了此后
+> 的修复与套件扩充（61 → 86）。当前数字请以 [`COMPATIBILITY.md`](COMPATIBILITY.md)
+> 与 [`BENCHMARK.md`](BENCHMARK.md) 为准。
+>
+> *Dated snapshot (2026-08-18), deliberately not updated in place. Chinese-only
+> body; only the headings and the one-line summary are mirrored in English.*
+
 **审计日期 / Date:** 2026-08-18
 **方法 / Method:** 逐子系统源码对比（Rust ↔ C++）+ 针对真实 C++ oracle 的端到端差分实测
 Subsystem-by-subsystem source comparison (Rust ↔ C++) **plus** end-to-end differential testing against a freshly-built C++ `stegseek` 0.6 oracle.
-**被审对象 / Subject:** `stegseek-rs` (workspace @ `crates/`, v0.6.0)
+**被审对象 / Subject:** `stegseek-rs` (workspace @ `crates/`, 审计时 v0.6.0 / audited at v0.6.0；当前发行版为 v1.0.0)
 **参照 / Reference:** `stegseek` 0.6 (fork of `steghide` 0.5.1), source in `stegseek-master.zip`, built from `src/` and linked against the system `libmcrypt 2.5.8-8+b2`, `libmhash 0.9.9.9`, `libjpeg-turbo 3.x`.
 
 ---
@@ -112,6 +120,7 @@ stegseek-rs 是对 stegseek 0.6 的**纯 Rust 重写**，无任何 C 库依赖�
 - C++ 用 `-O3 -flto -DNDEBUG` 重编**并不会更快**（与 `-O2` 持平，个别更慢）——所以公平（甚至偏向 C++）的比较基准就是发行版默认的 `-O2`。
 - 真实 rockyou.txt 破解 `none.jpg`（口令 `Sesame` 在第 10.6M 行，~74%）：Rust 16 线程 **0.19 s**，C++ 0.31 s。"rockyou 2 秒内"的招牌在本机被轻松满足。
 - 二进制体积：Rust **823 KB（零外部依赖）** vs C++ 1029 KB（静态链接 libmcrypt/libmhash/libjpeg）。
+  *（审计时 v0.6.0 的实测值；v1.0.0 现为 **873 KB**，strip 后 744 KB —— 见 `BENCHMARK.md`。）*
 
 ---
 
@@ -266,4 +275,4 @@ stegseek-rs 是对 stegseek 0.6 的**纯 Rust 重写**，无任何 C 库依赖�
 
 - oracle 构建：见 `BENCHMARK.md` §Reproduce（无 root，用 `apt-get download` + `dpkg-deb -x` 抽取 `-dev` 头文件与静态库）。
 - 互操作矩阵、失真测量、panic 复现、CLI 差异：本次审计脚本均为 `bash`/`python3` 一次性命令，逐条列于各 §（如 §5 F1 的截断 panic、F2 的通道分布统计）。
-- 内部测试：`cargo test --workspace --release`（61 passed）。
+- 内部测试：`cargo test --workspace --release`（审计当时 61 passed；修复后套件为 86，见 §0）。

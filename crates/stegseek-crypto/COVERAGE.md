@@ -1,5 +1,7 @@
 # M3 crypto coverage vs libmcrypt 2.5.8 (the reference oracle)
 
+> *This document is English-only; there is no Chinese mirror. 本文档仅有英文版。*
+
 All ciphers validated **bit-exact** against golden encrypt/decrypt vectors from
 the system libmcrypt 2.5.8, for every supported mode (`ecb`, `cbc`, `cfb`=CFB-8,
 `ncfb`=CFB-128, `ofb`=OFB-8, `nofb`=OFB-128, `ctr`, `stream`). See

@@ -1,5 +1,7 @@
 # Embedding (M7 + follow-up) — coverage & notes
 
+> *This document is English-only; there is no Chinese mirror. 本文档仅有英文版。*
+
 `--embed` works for all four formats and is **bidirectionally interoperable**
 with steghide 0.6 (`tests/embed_oracle.rs`, `tests/differential.rs` direction A:
 Rust embed → reference extract; `tests/crack_oracle.rs`: reference embed → Rust

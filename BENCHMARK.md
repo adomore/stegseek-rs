@@ -1,5 +1,7 @@
 # Performance / 性能测试
 
+> *Body text is English-only; there is no Chinese mirror. 本文档正文仅有英文版。*
+
 Head-to-head throughput of **stegseek-rs (pure Rust)** vs the **C++ `stegseek` 0.6
 original**, both built and measured on the same machine. Unlike the previous
 edition of this file (numbers taken from a 2-core build sandbox), every figure
@@ -68,9 +70,12 @@ both tools on this hardware; the Rust port does it in ~0.2 s on 16 cores.
    within noise, and `-O3` is sometimes *slightly slower* (code bloat / i-cache).
    So the fair (and if anything C++-favourable) baseline is the `-O2` binary users
    actually ship.
-3. The Rust binary is also smaller and dependency-free: **823 KB with zero external
-   libraries**, vs 1029 KB for the C++ binary (which statically links
-   libmcrypt/libmhash/libjpeg).
+3. The Rust binary is also smaller and dependency-free: **873 KB as
+   `cargo build --release` produces it — 744 KB stripped — with zero external
+   libraries**, vs 1029 KB for the C++ binary (built `-s`, i.e. already stripped,
+   and statically linking libmcrypt/libmhash/libjpeg). Sizes are for v1.0.0;
+   `KB` means 1024 bytes throughout this file. (The exact byte count varies by a
+   few bytes with the build path, which rustc embeds.)
 
 ## Why the Rust port is faster — the two hot-path fixes
 

@@ -1,5 +1,7 @@
 # Compatibility with steghide 0.5.1 / stegseek 0.6
 
+> *This document is English-only; there is no Chinese mirror. 本文档仅有英文版。*
+
 stegseek-rs is validated **bidirectionally against a built-from-source stegseek 0.6
 oracle** (linked against the system `libmcrypt 2.5.8` / `libmhash 0.9.9.9` /
 `libjpeg-turbo 3.x`). The following were confirmed **bit-for-bit / byte-for-byte
@@ -46,8 +48,9 @@ silently using an empty key; `--extract` defaults to the embedded filename;
 `-c/--continue` recovers multiple embedded files (`.out`/`.out.1`/…); live
 `Progress:` metrics are emitted and hidden by `-q`; `-r/--radius` and `-g/--goal`
 are accepted (radius applied to embedding); `-z` is range-checked; and the seed
-cracker now tests `0xFFFFFFFF`. Full bidirectional interoperability and 61/61
-tests are preserved.
+cracker now tests `0xFFFFFFFF`. Full bidirectional interoperability is preserved,
+and the suite grew from 61 to **86 tests** (85 run by default; 1 slow full-seed
+scan is `#[ignore]`d).
 
 ## Known differences
 
