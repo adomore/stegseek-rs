@@ -8,6 +8,22 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-31
+
+维护版本:修复从干净 clone 构建失败的问题,订正文档中的过时事实,并为中英 README 建立结构对齐门禁。二进制行为完全不变 —— 破解、提取、嵌入的结果、命令行接口与退出码均与 1.0.0 一致。
+
+### 修复 (Fixed)
+- **`--locked` 构建从干净 clone 失败**:`Cargo.lock` 此前被 `.gitignore` 排除,导致 `Dockerfile` 与两份 README 都推荐的 `cargo build --release --locked` 与 `docker build` 在新克隆的仓库上直接报错。锁文件现已入库,CI 的 cargo 步骤统一加 `--locked`,依赖漂移会在 CI 暴露,而不是等到 `docker build` 时才发现。
+
+### 变更 (Changed)
+- **CI 新增 `docs` 作业**:`scripts/lockstep.py` 强制 `README.md` 与 `README.en.md` 结构等价(标题层级序列、代码块数量、表格行数、行内代码字面量集合),只改一份即 CI 红。
+- **英文 README 补齐**:此前退化为摘要 —— 缺三张数据表、测试命令、参数速查、`COPYING` 链接与授权使用警告,章节顺序也与中文版不同;现已逐节对齐。两份 README 同时新增预编译二进制的下载说明,以及各文档的语言标注。
+- **文档事实订正**:二进制体积 823 KB 改为 **873 KB**(strip 后 744 KB,共 6 处)、测试数 61 改为 **86**、`--version` 横幅描述与代码对齐、`BUILD-rs.md` 中失效的产物路径与差分测试命令、CHANGELOG 中指向已删除标签的悬空链接。
+
+### 移除 (Removed)
+- **`libjpeg` cargo feature**:该 feature 未 gate 任何代码,连同 `BUILD-rs.md` 中列出的 `libjpeg8-dev` 前置依赖一并删除。
+- 三个不含任何测试的空测试文件(`dbg.rs`、`dbg2.rs`、`distortion.rs`);CI 此前为每个多链接一个测试二进制。
+
 ## [1.0.0] - 2026-08-20
 
 首个稳定版。经完整审计、双向差分校验与 fuzz 健壮性加固后正式定为 1.0。
@@ -47,5 +63,6 @@
 ### 许可证 (License)
 GPL-2.0-or-later,基于 steghide 0.5.1(Stefan Hetzl)与 stegseek 0.6(Rick de Jager)。
 
-[Unreleased]: https://github.com/adomore/stegseek-rs/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/adomore/stegseek-rs/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/adomore/stegseek-rs/releases/tag/v1.1.0
 [1.0.0]: https://github.com/adomore/stegseek-rs/releases/tag/v1.0.0

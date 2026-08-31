@@ -51,7 +51,7 @@
 
 ```bash
 # 取自 https://github.com/adomore/stegseek-rs/releases/latest
-tar -xzf stegseek-rs-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
+tar -xzf stegseek-rs-v1.1.0-x86_64-unknown-linux-gnu.tar.gz
 ./stegseek-rs --version
 ```
 
