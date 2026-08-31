@@ -1,7 +1,6 @@
 # Build output
 /target
 **/*.rs.bk
-Cargo.lock
 /tests/corpus/generated
 
 # Large / non-source assets not needed to build or test the port.
