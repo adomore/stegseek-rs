@@ -4,9 +4,4 @@ version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
-description = "JPEG quantized DCT coefficient read + lossless re-encode (pure Rust; optional libjpeg FFI)."
-
-[features]
-default = []
-# Fallback / differential baseline using the system libjpeg (v8).
-libjpeg = []
+description = "JPEG quantized DCT coefficient read + lossless re-encode (pure Rust, no libjpeg)."
