@@ -11,7 +11,7 @@
 **审计日期 / Date:** 2026-08-18
 **方法 / Method:** 逐子系统源码对比（Rust ↔ C++）+ 针对真实 C++ oracle 的端到端差分实测
 Subsystem-by-subsystem source comparison (Rust ↔ C++) **plus** end-to-end differential testing against a freshly-built C++ `stegseek` 0.6 oracle.
-**被审对象 / Subject:** `stegseek-rs` (workspace @ `crates/`, 审计时 v0.6.0 / audited at v0.6.0；当前发行版为 v1.0.0)
+**被审对象 / Subject:** `stegseek-rs` (workspace @ `crates/`, 审计时 v0.6.0 / audited at v0.6.0；当前发行版为 v1.1.0)
 **参照 / Reference:** `stegseek` 0.6 (fork of `steghide` 0.5.1), source in `stegseek-master.zip`, built from `src/` and linked against the system `libmcrypt 2.5.8-8+b2`, `libmhash 0.9.9.9`, `libjpeg-turbo 3.x`.
 
 ---
@@ -120,7 +120,7 @@ stegseek-rs 是对 stegseek 0.6 的**纯 Rust 重写**，无任何 C 库依赖�
 - C++ 用 `-O3 -flto -DNDEBUG` 重编**并不会更快**（与 `-O2` 持平，个别更慢）——所以公平（甚至偏向 C++）的比较基准就是发行版默认的 `-O2`。
 - 真实 rockyou.txt 破解 `none.jpg`（口令 `Sesame` 在第 10.6M 行，~74%）：Rust 16 线程 **0.19 s**，C++ 0.31 s。"rockyou 2 秒内"的招牌在本机被轻松满足。
 - 二进制体积：Rust **823 KB（零外部依赖）** vs C++ 1029 KB（静态链接 libmcrypt/libmhash/libjpeg）。
-  *（审计时 v0.6.0 的实测值；v1.0.0 现为 **873 KB**，strip 后 744 KB —— 见 `BENCHMARK.md`。）*
+  *（审计时 v0.6.0 的实测值；v1.1.0 现为 **873 KB**，strip 后 744 KB —— 见 `BENCHMARK.md`。）*
 
 ---
 

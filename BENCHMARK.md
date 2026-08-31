@@ -73,7 +73,7 @@ both tools on this hardware; the Rust port does it in ~0.2 s on 16 cores.
 3. The Rust binary is also smaller and dependency-free: **873 KB as
    `cargo build --release` produces it — 744 KB stripped — with zero external
    libraries**, vs 1029 KB for the C++ binary (built `-s`, i.e. already stripped,
-   and statically linking libmcrypt/libmhash/libjpeg). Sizes are for v1.0.0;
+   and statically linking libmcrypt/libmhash/libjpeg). Sizes are for v1.1.0;
    `KB` means 1024 bytes throughout this file. (The exact byte count varies by a
    few bytes with the build path, which rustc embeds.)
 

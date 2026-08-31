@@ -182,7 +182,7 @@ checksum = "3a219298ac11a56ea9a6d2120044824d6f01aeb034955e7af7bc16858527deea"
 
 [[package]]
 name = "stegseek-cli"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "stegseek-core",
  "stegseek-crypto",
@@ -190,7 +190,7 @@ dependencies = [
 
 [[package]]
 name = "stegseek-core"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "crc32fast",
  "flate2",
@@ -201,7 +201,7 @@ dependencies = [
 
 [[package]]
 name = "stegseek-crypto"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blowfish",
  "byteorder",
@@ -217,7 +217,7 @@ dependencies = [
 
 [[package]]
 name = "stegseek-jpeg"
-version = "1.0.0"
+version = "1.1.0"
 
 [[package]]
 name = "twofish"
@@ -242,7 +242,7 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
 name = "xtask"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "stegseek-core",
 ]
