@@ -20,3 +20,13 @@ jobs:
         run: cargo test --workspace --locked
       - name: Clippy
         run: cargo clippy --workspace --locked -- -D warnings
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The EN/ZH README pair must stay structurally identical: same heading
+      # levels, same tables, same code blocks, same inline literals. Drift is
+      # invisible to a reader who only opens one language.
+      - name: EN/ZH lockstep
+        run: python3 scripts/lockstep.py README.en.md README.md
