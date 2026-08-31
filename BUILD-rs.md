@@ -52,3 +52,10 @@ in [`BENCHMARK.md`](BENCHMARK.md) § Reproduce.
 cargo run -p xtask --release -- crack-bench   # end-to-end wordlist throughput
 cargo run -p xtask --release -- bench         # per-candidate hot-path micro-bench
 ```
+
+## Documentation gate
+The EN/ZH README pair is held in structural lockstep by a CI check:
+
+```bash
+python3 scripts/lockstep.py README.en.md README.md
+```
