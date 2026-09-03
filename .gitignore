@@ -13,3 +13,6 @@
 /none.jpg.out
 /target.jpg
 *.out.bin
+
+# Claude Code local state (worktree copies, session settings)
+/.claude/
